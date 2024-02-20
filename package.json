@@ -1,0 +1,17 @@
+{
+  "name": "demosesi7_apiautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.3.0",
+    "supertest": "^6.3.4"
+  }
+}
