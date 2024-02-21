@@ -1,50 +1,52 @@
 const request = require("supertest"); // importsupertest
 const {expect} = require("chai");
+
 const url = "https://api.restful-api.dev";
+
 const {
-    getMethod
+    getMethod,
+    postMethod,
+    putMethod,
+    patchMethod,
+    deleteMethod,
 } = require("../server_api/api_objects");
 
-describe("GET REQUEST TEST RESFTUL",function()
+
+describe("KELOLA DATA",function()
 {
+    let id;
     // test case 1
-  /*  it("GET",async function()
+    it("Post Method Test",async function()
     {
-        // const response = await request("https://api.restful-api.dev")
-        // .get("/objects/4");
-
-        const response = await request(url).get('/objects/4').expect(200);
-        
-        // Assertions
-
-        expect(response.status).to.equal(200);
-        expect(response.body.id).to.equal("4");
-        console.log(response.body);
-        // expect(response.body.id).to.equal("4");
-        // other assertions
-    });   */
-
-    it("GET ID",async function()
-    {
-        await getMethod("4");
+        id = await postMethod();
     })
 
-    /*
-    it("GET KESELURUHAN",async function()
+    // test case 2
+    it("Verify response with PUT method", async function()
     {
-        // const response = await request("https://api.restful-api.dev")
-        // .get("/objects/4");
+        await putMethod(id);
+    })
 
-        const response = await request(url).get('/objects').expect(200);
-        
-        // Assertions
+    // test case 3
+    it("PATCH Method",async function()
+    {
+        await patchMethod(id);
+    })
 
-        expect(response.status).to.equal(200);
-        // expect(response.body.id).to.equal("4");
-        console.log(response.body);
-        // expect(response.body.id).to.equal("4");
-        // other assertions
-    }); */
+    // test case 4
+    it("GET ID",async function()
+    {
+        await getMethod(id);
+    })
+
+    it("DELETE METHOD",async function()
+    {
+        await deleteMethod(id);
+    })
+
+
+
+
 
     
     // other test case
